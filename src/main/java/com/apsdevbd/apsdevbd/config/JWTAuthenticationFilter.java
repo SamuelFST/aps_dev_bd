@@ -62,7 +62,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     ) throws IOException {
         String token = JWT.create()
                 .withSubject(((UserDetails) auth.getPrincipal()).getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis() + 900_000))
+                .withExpiresAt(new Date(System.currentTimeMillis() + 3_600_000))
                 .sign(Algorithm.HMAC512(SECRET.getBytes()));
 
         StringBuilder json = new StringBuilder();
